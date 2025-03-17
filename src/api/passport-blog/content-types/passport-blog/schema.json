@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "passport_blogs",
+  "info": {
+    "singularName": "passport-blog",
+    "pluralName": "passport-blogs",
+    "displayName": "Passport Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "mainPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "visaStatus": {
+      "type": "enumeration",
+      "enum": [
+        "visa-free",
+        "visa",
+        "visa-on-arrival",
+        "eta"
+      ],
+      "required": true,
+      "default": "visa"
+    },
+    "warnings": {
+      "type": "json",
+      "required": false
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "keywords": {
+      "type": "json"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    }
+  }
+}
