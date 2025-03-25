@@ -426,6 +426,7 @@ export interface ApiPassportBlogPassportBlog
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
     keywords: Schema.Attribute.JSON;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
