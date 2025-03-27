@@ -6,7 +6,11 @@ export default factories.createCoreController("api::passport-blog.passport-blog"
 
     const blog = await strapi.entityService.findMany("api::passport-blog.passport-blog", {
       filters: { slug },
-      populate: ["author", "mainPhoto", "photos"],
+      populate: {
+        author: { populate: "photo" },
+        mainPhoto: true,
+        photos: true,
+      },
     });
 
     if (!blog || blog.length === 0) {
